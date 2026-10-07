@@ -5,7 +5,6 @@
 **Academic Faculty:** Chandra Sekhar Jena  
 **Domain:** Food Tech / Retail & Consumer Analytics  
 
----
 
 ## 1. Project Overview & Problem Statement
 Bangalore is one of India's most saturated restaurant markets, featuring thousands of dining establishments ranging from street eateries to luxury fine dining. In this highly competitive environment, restaurant owners, cloud kitchen operators, and investors face major challenges:
@@ -16,7 +15,7 @@ Bangalore is one of India's most saturated restaurant markets, featuring thousan
 
 This project analyzes the Kaggle Zomato Bangalore Restaurants dataset to uncover actionable operational patterns, price sensitivities, and geographic distributions.
 
----
+
 
 ## 2. Key Features & Deliverables
 * **Data Cleaning & Standardization:** Handled missing values, formatted `rate` (extracted ratings out of 5), converted `cost` into numeric Indian Rupees, and removed duplicates.
@@ -25,7 +24,7 @@ This project analyzes the Kaggle Zomato Bangalore Restaurants dataset to uncover
 * **Interactive Dashboard:** Built a Plotly Dash web application featuring dynamic locality dropdown filtering and responsive multi-chart visualization.
 * **AI Tool Integration:** Structured prompt engineering with critical statistical evaluation documented in `AI_Analysis.txt`.
 
----
+
 
 ## 3. Tech Stack
 * **Programming Language:** Python 3.9+
@@ -36,7 +35,7 @@ This project analyzes the Kaggle Zomato Bangalore Restaurants dataset to uncover
 * **AI Collaboration:** Google Gemini
 * **Version Control:** Git, GitHub
 
----
+
 
 
 ### Dataset Setup or installation steps
@@ -52,3 +51,12 @@ Due to GitHub's file size limit, the raw `zomato.csv` is not tracked directly in
    food-delivery-analytics/
    └── data/
        └── zomato.csv
+
+
+### Screenshots
+<img width="1909" height="975" alt="Screenshot 2026-10-08 000253" src="https://github.com/user-attachments/assets/d79e8678-6811-43c7-bbaa-e2a7c62c356b" />
+<img width="1920" height="1080" alt="Screenshot (40)" src="https://github.com/user-attachments/assets/06d545a9-7867-401e-b60f-7615ec0d06fe" />
+
+
+   
+
