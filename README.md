@@ -38,7 +38,7 @@ This project analyzes the Kaggle Zomato Bangalore Restaurants dataset to uncover
 
 
 
-### Dataset Setup or installation steps
+## 4. Dataset Setup or installation steps
 
 Due to GitHub's file size limit, the raw `zomato.csv` is not tracked directly in this repository. Follow these steps to obtain and place the dataset:
 
@@ -53,9 +53,11 @@ Due to GitHub's file size limit, the raw `zomato.csv` is not tracked directly in
        └── zomato.csv
 
 
-### Screenshots
-<img width="1909" height="975" alt="Screenshot 2026-10-08 000253" src="https://github.com/user-attachments/assets/d79e8678-6811-43c7-bbaa-e2a7c62c356b" />
-<img width="1920" height="1080" alt="Screenshot (40)" src="https://github.com/user-attachments/assets/06d545a9-7867-401e-b60f-7615ec0d06fe" />
+## 5. Screenshots
+1. For dataset
+  <img width="1909" height="975" alt="Screenshot 2026-10-08 000253" src="https://github.com/user-attachments/assets/d79e8678-6811-43c7-bbaa-e2a7c62c356b" />
+2. For CSV (after extraction)  
+  <img width="1920" height="1080" alt="Screenshot (40)" src="https://github.com/user-attachments/assets/06d545a9-7867-401e-b60f-7615ec0d06fe" />
 
 
    
