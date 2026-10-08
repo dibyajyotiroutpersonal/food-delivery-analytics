@@ -37,28 +37,21 @@ This project analyzes the Kaggle Zomato Bangalore Restaurants dataset to uncover
 
 
 
+## 4.  Installation Steps
+# Step 1: Core numerical and data processing libraries
+pip install numpy
+pip install pandas
 
-## 4. Dataset Setup or installation steps
+# Step 2: Static visualization libraries
+pip install matplotlib
+pip install seaborn
 
-Due to GitHub's file size limit, the raw `zomato.csv` is not tracked directly in this repository. Follow these steps to obtain and place the dataset:
+# Step 3: Interactive charting and dashboard framework
+pip install plotly
+pip install dash
 
-1. Download the dataset from Kaggle:
-   [Zomato Bangalore Restaurants Dataset](https://www.kaggle.com/datasets/himanshupoddar/zomato-bangalore-restaurants)
-2. Extract the downloaded archive to locate `zomato.csv`.
-3. Create a `data/` directory in the root folder of this project if it does not already exist.
-4. Place `zomato.csv` directly inside the `data/` folder:
-   ```text
-   food-delivery-analytics/
-   └── data/
-       └── zomato.csv
-
-
-## 5. Screenshots
-1. For dataset
-  <img width="1909" height="975" alt="Screenshot 2026-10-08 000253" src="https://github.com/user-attachments/assets/d79e8678-6811-43c7-bbaa-e2a7c62c356b" />
-2. For CSV (after extraction)  
-  <img width="1920" height="1080" alt="Screenshot (40)" src="https://github.com/user-attachments/assets/06d545a9-7867-401e-b60f-7615ec0d06fe" />
-
+# Step 5: Verify all installations
+python -c "import numpy, pandas, matplotlib, seaborn, plotly, dash, jupyter; print('All 6 dependencies loaded successfully!')"
 
    
 
