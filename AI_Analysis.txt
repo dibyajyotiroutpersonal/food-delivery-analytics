@@ -1,0 +1,102 @@
+================================================================================
+AI-ASSISTED DEVELOPMENT & CRITICAL EVALUATION REPORT
+================================================================================
+Course: Data Analysis and Visualization Using Python (CUTM1018)
+Project: Food Delivery App Analytics (Zomato Bangalore)
+Platform / Model Used: Google Gemini
+Repository: https://github.com/dibyajyotiroutpersonal/food-delivery-analytics
+================================================================================
+
+1. EXECUTIVE SUMMARY & OBJECTIVE
+--------------------------------------------------------------------------------
+This report documents the structured interaction with generative AI tools 
+(Google Gemini) during the lifecycle of the Zomato Bangalore Data Analytics 
+project. AI assistance was utilized across four distinct stages:
+(a) Preprocessing and regex extraction logic for noisy string attributes.
+(b) Statistical outlier detection formulation using the IQR method.
+(c) Construction of reactive UI layout and callbacks in Plotly Dash.
+(d) Generation of cross-platform deployment guidelines and dependency freeze.
+
+Every AI recommendation was independently tested, statistically validated, 
+and refined before being committed to the codebase.
+
+
+2. PROMPT LOGS, RESPONSES & TECHNICAL ADAPTATIONS
+--------------------------------------------------------------------------------
+
+[STAGE 1: DATA CLEANING & TYPE CONVERSION]
+* User Prompt:
+  "In the Zomato Bangalore dataset, the 'rate' column contains values like '4.1/5',
+  'NEW', and '-' along with NaN. The 'approx_cost(for two people)' contains commas 
+  like '1,200'. Write Python code to clean these columns into numeric types."
+
+* AI Suggested Output:
+  df['rate'] = df['rate'].apply(lambda x: str(x).split('/')[0] if pd.notnull(x) else np.nan)
+  df['rate'] = pd.to_numeric(df['rate'], errors='coerce')
+  df['approx_cost'] = df['approx_cost(for two people)'].str.replace(',', '').astype(float)
+
+* Independent Evaluation & Refinement:
+  The suggested code threw an AttributeError when executing `.str.replace()` 
+  because 'approx_cost(for two people)' contains NaN values stored as floating NaN.
+  Adaptation: Chained `.astype(str)` prior to string manipulation and handled bad 
+  delimiters safely using:
+  df['approx_cost'] = df['approx_cost'].astype(str).str.replace(',', '').str.strip()
+  df['approx_cost'] = pd.to_numeric(df['approx_cost'], errors='coerce')
+
+
+[STAGE 2: STATISTICAL OUTLIER DETECTION (IQR METHOD)]
+* User Prompt:
+  "Provide Python code to identify and remove dining cost outliers using the 
+  interquartile range (IQR) rule."
+
+* AI Suggested Output:
+  Q1 = df['approx_cost'].quantile(0.25)
+  Q3 = df['approx_cost'].quantile(0.75)
+  IQR = Q3 - Q1
+  lower_bound = Q1 - 1.5 * IQR
+  upper_bound = Q3 + 1.5 * IQR
+  cleaned_df = df[(df['approx_cost'] >= lower_bound) & (df['approx_cost'] <= upper_bound)]
+
+* Independent Evaluation & Refinement:
+  Trimming the dataset by strictly dropping rows where approx_cost > upper_bound 
+  biases the exploratory analysis against legitimate fine-dining establishments 
+  in central commercial hubs (e.g., MG Road, Indiranagar). 
+  Adaptation: Retained outliers in the primary exploratory dataset for bivariate 
+  scatter distributions, but created a segmented view (`df_normal_range`) for 
+  evaluating mid-tier consumer trends.
+
+
+[STAGE 3: REACTIVE DASHBOARD FRAMEWORK (PLOTLY DASH)]
+* User Prompt:
+  "Write an interactive Plotly Dash application with a dropdown filter for localities 
+  that simultaneously updates cost vs rating scatter plot and rating distribution."
+
+* AI Suggested Output:
+  Generated a functional Dash layout using `dcc.Dropdown` and `@app.callback` returning 
+  two Plotly Express figures.
+
+* Independent Evaluation & Refinement:
+  1. The AI omitted an "All Localities" option, forcing users to evaluate only 
+     one locality at a time. Added an explicit `"ALL"` option to aggregate total market metrics.
+  2. The AI script lacked a dataset fallback mechanism; if `zomato.csv` was missing 
+     due to memory limits, the script failed immediately. Added a synthetic seed fallback 
+     to ensure zero-crash evaluator testing.
+
+
+[STAGE 4: ENVIRONMENT & DEPENDENCY MANAGEMENT]
+* User Prompt:
+  "How should dependencies be formatted in requirements.txt to meet strict academic criteria?"
+
+* AI Suggested Output:
+  Explained the distinction between loose version pinning (`>=`) and locked builds 
+  (`pip freeze`), recommending pinned release tags (`==`) to eliminate runtime 
+  regressions between local Windows CMD environments and evaluation runtimes.
+
+
+3. ETHICAL & ACADEMIC INTEGRITY DECLARATION
+--------------------------------------------------------------------------------
+Generative AI was employed strictly as an intelligent co-developer for syntactic 
+assistance, boilerplate scaffolding, and logic acceleration. All data analyses, 
+domain interpretations, statistical validation checks, and architectural decisions 
+were performed, verified, and finalized by the author.
+================================================================================
